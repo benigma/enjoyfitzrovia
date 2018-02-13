@@ -1,0 +1,483 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+	font-family: "Helvetica Neue", arial, sans-serif;
+}
+h3 {
+	font-size: 28px;
+	font-family: "Helvetica Neue", arial, sans-serif;
+	line-height: 36px;
+	color: #000;
+	padding: 0 0;
+	margin: 0 auto;
+}
+h4 {
+	font-size: 14px;
+	font-family: "Helvetica Neue", arial, sans-serif;
+	font-weight: normal;
+	line-height: 16px;
+	color: red;
+	text-transform: uppercase;
+	padding: 0 0;
+}
+p {
+	font-family: "Helvetica Neue", arial, sans-serif;
+	color: #000;
+	font-size: 16px;
+	line-height: 1.125em;
+	padding: 0 0 ;
+	margin-bottom: 1em;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}
+
+.container{
+  width: 95%;
+  margin: 2.5%;
+  text-align: right;
+  font-size: 0;
+}
+/* Flex box progressive enhancements: */
+
+.container{
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+  perspective: 1000;
+  padding-top: 16px;
+  
+}
+.container:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.container .item,
+.container .gap{
+  display: inline-block;
+  width: 49%;
+}
+
+.container .mix {
+ width: 23%;
+ height: 100%;
+-webkit-transform-style: preserve-3d;
+-moz-transform-style: preserve-3d;
+-ms-transform-style: preserve-3d;
+transform-style: preserve-3d;
+position: relative;
+text-align: right;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+margin-bottom: 4%;
+display: none;
+font-size: 25px;
+padding: 0 1em 1em 1em;
+line-height: 1em;
+font-weight: 400;
+color: rgba(255, 255, 255, 0.9);
+vertical-align: top;
+-webkit-backface-visibility: hidden;
+margin: 0 1% 1% 0;
+min-height: 450px;
+}
+.container .mix img {
+	width: 50%;
+	max-width: 250px;
+	height: auto;
+	margin-right: 25%;
+	margin-top: .5em;
+}
+.container .mix a {
+	display: block;
+	text-decoration: none;
+}
+.container:before, .container:after, .container-fluid:before, .container-fluid:after {
+	content: none;
+}
+
+/* -- make sure to declare a default for every property that you want animated -- */
+/* -- general styles, including Y axis rotation -- */
+.mix .front {
+	float: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 900;
+	padding: 0 16px;
+	width: 100%;
+	height: auto;
+	height: inherit;
+	background: #FFF;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.125), -3px -3px 5px rgba(0,0,0,0.125);
+	border: 1px solid #ACA;
+	padding: 16px;
+	content: '';
+	background: #FFF url('../img/flip-icon.png') no-repeat bottom right;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+/* -- transition is the magic sauce for animation -- */
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+.mix.flip .front {
+	z-index: 900;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.125), -3px -3px 5px rgba(0,0,0,0.125);
+	border: 1px solid #ACA;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.mix .back {
+	float: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 16px;
+	padding-top: 16px;
+	background: white;
+	z-index: 800;
+	width: 100%;
+	height: inherit;
+	border: 1px solid #ccc;
+
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-179deg); /* setting to 180 causes an unnatural-looking half-flip */
+	transform: rotateY(-179deg);
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+.map {
+	border: 1px solid #999;
+	height: 202px;
+}
+.mix.flip .back {
+	z-index: 1000;
+	
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.125), -3px -3px 5px rgba(0,0,0,0.125);
+	border: 1px solid #ACA;
+
+}
+
+/* -- Y axis rotation for click mix -- */
+.click .front {
+	cursor: pointer;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	background: #FFF url('../img/swipii-icon.png') no-repeat bottom right;
+}
+.click.flip .front {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.click .back {
+	cursor: pointer;
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+.click.flip .back {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+.mix:after{
+  content: '';
+  position: absolute;
+  border: 20px solid transparent;
+  border-right-color: white;
+  top: -20px;
+  left: -20px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 3000;
+}
+
+/* Shop Directory Colours */
+.mix.bank:after {
+  border-right-color: #f14f45;
+}
+.mix.bookmakers:after {
+  border-right-color: #354d94;
+}
+.mix.gifts:after {
+  border-right-color: #96c449;
+}
+.mix.clothing:after {
+  border-right-color: #CFAABC;
+}
+.mix.electronics:after {
+  border-right-color: #354D94;
+}
+.mix.groceries:after {
+  border-right-color: #37A554;
+}
+.mix.hairdresser:after {
+  border-right-color: #00AEEA;
+}
+.mix.health:after {
+  border-right-color: #FFBE2E;
+}
+.mix.homeware:after {
+  border-right-color: #8b499b;
+}
+.mix.leisure:after {
+  border-right-color: #c65d48;
+}
+.mix.phone:after {
+  border-right-color: #007f94;
+}
+.mix.opticians:after {
+  border-right-color: #f14f45;
+}
+.mix.newsagent:after {
+  border-right-color: #a0783f;
+}
+
+/* Eat Directory Colours */
+
+.mix.american:after {
+  border-right-color: #f14f45;
+}
+.mix.cafe:after {
+  border-right-color: #354d94;
+}
+.mix.chinese:after {
+  border-right-color: #96c449;
+}
+.mix.fastfood:after {
+  border-right-color: #CFAABC;
+}
+.mix.french:after {
+  border-right-color: #354D94;
+}
+.mix.greek:after {
+  border-right-color: #37A554;
+}
+.mix.indian:after {
+  border-right-color: #00AEEA;
+}
+.mix.italian:after {
+  border-right-color: #FFBE2E;
+}
+.mix.japanese:after {
+  border-right-color: #8b499b;
+}
+.mix.european:after {
+  border-right-color: #c65d48;
+}
+.mix.pub:after {
+  border-right-color: #007f94;
+}
+.mix.spanish:after {
+  border-right-color: #f14f45;
+}
+.mix.thai:after {
+  border-right-color: #9561A9;
+}
+.mix.vietnamese:after {
+  border-right-color: #eca137;
+}
+
+.mix.other:after {
+  border-right-color: #f24497;
+}
+
+.mix.gallery:after {
+  border-right-color: #9561A9;
+}
+
+.mix.advert {
+	content: '';
+	min-height: 300px;
+	background: url('../img/feast-advert.jpg') center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.mix.advert:hover {
+	cursor: pointer;
+}
+
+.container .mix .icon {
+	background: url('img/flip-icon.png') no-repeat bottom right;
+	width: 40px;
+	height: auto;
+	margin: 0;
+	float: right;
+}
+/* Retina Display iPad */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+	p {
+		font-size: 125%;
+	}
+	.container .mix {
+		min-height: 575px;
+	}
+	.container .mix,
+	.container .gap{
+	  width: 32%;
+	}
+	.controls .nav-right {
+		width: 40%;
+	}
+	select {
+		width: 100%;
+		color: #000;
+		height: 40px;
+		padding: 1em;
+		font-size: 2em;
+		margin-bottom: 1em;
+		height: auto;
+		-webkit-appearance: menulist-button;
+	}
+	input[type="text"] {
+		width: 100%;
+		padding: 0.5em;
+		border-radius: 4px;
+		margin-left: 0;
+		border: 1px solid rgba(0,0,0,0.25);
+		font-size: 2em;
+		float: none;
+	}
+}
+@media only screen and (min-width : 801px) and (max-width : 1279px) {
+	p {
+		font-size: 1em;
+	}
+	 .container .mix,
+	 .container .gap{
+	   width: 32%;
+	 }
+	 .container .mix.artist,
+	 .container .gap{
+	   width: 98%;
+	 }
+	 .controls .nav-right {
+	 	width: 40%;
+	 }
+	 select {
+	 	width: 100%;
+	 	color: #000;
+	 	height: 40px;
+	 	padding: 1em;
+	 	font-size: 2em;
+	 	margin-bottom: 1em;
+	 	height: auto;
+	 	-webkit-appearance: menulist-button;
+	 }
+	 input[type="text"] {
+	 	width: 100%;
+	 	padding: 0.5em;
+	 	border-radius: 4px;
+	 	margin-left: 0;
+	 	border: 1px solid rgba(0,0,0,0.25);
+	 	font-size: 2em;
+	 	float: none;
+	 }
+}
+@media only screen and (min-width : 321px) and (max-width : 800px) {
+  .container .mix,
+  .container .gap{
+    width: 32%;
+  }
+  .controls .nav-right {
+  	display: none;
+  }
+  select {
+  	width: 100%;
+  	color: #000;
+  	height: 40px;
+  	padding: 1em;
+  	font-size: 2em;
+  	margin-bottom: 1em;
+  	height: auto;
+  	-webkit-appearance: menulist-button;
+  }
+  input[type="text"] {
+  	width: 100%;
+  	padding: 0.5em;
+  	border-radius: 4px;
+  	margin-left: 0;
+  	border: 1px solid rgba(0,0,0,0.25);
+  	font-size: 2em;
+  	float: none;
+  }
+}
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  .container .mix,
+  .container .gap{
+    width: 32%;
+  }
+  .controls .nav-right {
+  	display: none;
+  }
+  button {
+  	margin-top: .25em;
+  }
+  select {
+  	width: 100%;
+  	color: #000;
+  	height: 40px;
+  	padding: 1em;
+  	font-size: 2em;
+  	margin-bottom: 1em;
+  	height: auto;
+  	-webkit-appearance: menulist-button;
+  }
+  input[type="text"] {
+  	width: 100%;
+  	padding: 0.5em;
+  	border-radius: 4px;
+  	margin-left: 0;
+  	border: 1px solid rgba(0,0,0,0.25);
+  	font-size: 2em;
+  	float: none;
+  }
+}

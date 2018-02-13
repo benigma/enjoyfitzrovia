@@ -1,0 +1,251 @@
+html {
+	background: #FFF;
+}
+body {
+	background: #FFF url('../img/Fitz_Xmas_2015_Web_BG.jpg') repeat left top;
+}
+.advent-container {
+	border-top: 10px solid #FFF;
+	margin-left: -10px;
+}
+.box {
+  width: 300px;
+  min-width: 300px;
+  margin: 0 10px 0 0;
+  background: rgba(255,255,255,0.2);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 0px;
+  background-clip: padding-box;
+  text-align: center;
+  float: left;
+}
+.box img {
+	width: 300px;
+	border: 5px solid red;
+}
+.box a {
+	width: 300px;
+	height: 450px;
+	display: block;
+}
+.notyet {
+	pointer-events: none;
+	opacity: 0.5;
+}
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid orange;
+  border-radius: 0px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: orange;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFF;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  display: none;
+}
+.overlay:target {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 10px auto;
+  padding: 0px;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup img {
+	border: 5px solid red;
+	margin: 1em auto;
+	text-align: center;
+}
+.popup h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  color: #333;
+  text-align: center;
+}
+.popup .closebtn {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+  background: red;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  opacity: 1;
+}
+.popup .content {
+  width: 80%;
+  margin: 0 10%;
+  overflow: auto;
+}
+.popup .content img {
+    width: 45%;
+    margin: 1em 40px 0 0;
+    float: left;
+}
+.popup .content p {
+	margin-top: 40px;
+}
+
+
+/* iPad Portrait and Landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	
+	.advent-container {
+		margin-left: 0px;
+	}
+	.popup .content {
+	  width: 90%;
+	  margin: 0 5%;
+	  overflow: auto;
+	}
+	.popup .closebtn {
+	  position: absolute;
+	  bottom: 0;
+	  display: block;
+	  width: 100%;
+	  margin: 0;
+	  font-size: 48px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: #FFF;
+	  padding: 0.25em 1em;
+	  opacity: 1;
+	}
+
+}
+
+/* iPhone 5 */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+
+	.popup .content {
+	  width: 100%;
+	  margin: 0;
+	  overflow: scroll;
+	}
+	.popup .content h2 {
+		margin-bottom: 1em;
+	}
+	.popup .content p {
+		font-size: 1.5em;
+	}
+	.popup .content img {
+	    width: 80%;
+	    margin: 1em 10%;
+	    float: none;
+	}
+	.popup .closebtn {
+	  position: inherit;
+	  bottom: 0;
+	  display: block;
+	  width: 100%;
+	  margin: 0;
+	  font-size: 48px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: #FFF;
+	  padding: 0.5em 1em;
+	  opacity: 1;
+	}
+
+}
+
+
+/* iPhone Portrait and Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) { 
+
+	.popup .content {
+	  width: 100%;
+	  height: 100%;
+	  margin: 0;
+	  padding-bottom: 200px;
+	  overflow: scroll;
+	}
+	.popup .content img {
+	    width: 80%;
+	    margin: 1em 10%;
+	    float: none;
+	}
+	.popup .content h2 {
+		margin-bottom: 1em;
+	}
+	.popup .closebtn {
+	  position: inherit;
+	  bottom: 0;
+	  display: block;
+	  width: 100%;
+	  margin: 0;
+	  font-size: 48px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: #FFF;
+	  padding: 0.5em 1em;
+	  opacity: 1;
+	}
+
+}
+
+/* Retina Display Phones */
+@media screen and (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-moz-device-pixel-ratio: 2) {
+
+	.popup .content {
+	  width: 100%;
+	  height: 100%;
+	  margin: 0;
+	  padding-bottom: 200px;
+	  overflow: scroll;
+	}
+	.popup .content h2 {
+		margin-bottom: 0.5em;
+	}
+	.popup .content p {
+		font-size: 200%;
+	}
+	.popup .content img {
+	    width: 80%;
+	    margin: 1em 10%;
+	    float: none;
+	}
+	.popup .closebtn {
+	  position: inherit;
+	  bottom: 0;
+	  display: block;
+	  width: 100%;
+	  margin: 0;
+	  font-size: 48px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: #FFF;
+	  padding: 0.5em 1em;
+	  opacity: 1;
+	}
+}
